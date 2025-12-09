@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}Projects - Shawaiz{% endblock %}
+{% block title %}Projects - Muhammad Abdullah{% endblock %}
 
 {% block content %}
 <div class="container my-5 pt-5">
     <div class="row">
         <div class="col-12 text-center mb-5">
             <h1 class="display-4 fw-bold">My Projects</h1>
-            <p class="lead text-muted">A showcase of my work and creative solutions</p>
+            <p class="lead card-text">A showcase of my work and creative solutions</p>
         </div>
     </div>
 
@@ -55,17 +55,17 @@
                     
                     <!-- Category Badge -->
                     <div class="mb-2">
-                        <span class="badge bg-secondary">{{ project.category.title() }}</span>
+                        <span class="badge bg-secondary ">{{ project.category.title() }}</span>
                     </div>
                     
                     <!-- Tech Stack -->
                     {% if project.tech_stack %}
-                    <div class="tech-stack mb-3">
+                    <div class="tech-stack mb-3 ">
                         {% for tech in project.tech_stack.split(',')[:4] %}
-                        <span class="tech-badge">{{ tech.strip() }}</span>
+                        <span class="tech-badge"  style="color:  white; border: 1px solid white; border-radius: 50px; padding: 5px;font-size: small; background: #000;">{{ tech.strip() }}</span>
                         {% endfor %}
                         {% if project.tech_stack.split(',')|length > 4 %}
-                        <span class="tech-badge">+{{ project.tech_stack.split(',')|length - 4 }} more</span>
+                        <span class="tech-badge" >+{{ project.tech_stack.split(',')|length - 4 }} more</span>
                         {% endif %}
                     </div>
                     {% endif %}
@@ -74,7 +74,7 @@
                     {% if project.tags %}
                     <div class="mb-3">
                         {% for tag in project.tags.split(',')[:3] %}
-                        <span class="tag">{{ tag.strip() }}</span>
+                        <span class="tag" style="color:  white; border: 1px solid white; border-radius: 50px; padding: 5px;font-size: small; background: #000;">{{ tag.strip() }}</span>
                         {% endfor %}
                     </div>
                     {% endif %}
@@ -103,7 +103,7 @@
 
     <!-- Pagination -->
     {% if projects.pages > 1 %}
-    <nav aria-label="Projects pagination" class="mt-5">
+    <nav aria-label="Projects pagination" class="mt-5" >
         <ul class="pagination justify-content-center">
             {% if projects.has_prev %}
             <li class="page-item">
@@ -164,8 +164,8 @@
 
     <!-- Call to Action -->
     <div class="row mt-5">
-        <div class="col-lg-8 mx-auto text-center">
-            <div class="bg-light rounded p-5">
+        <div class="col-lg-8 mx-auto text-center" >
+            <div class="rounded p-5" style="background: #051025;"  >
                 <h3 class="mb-3">Have a project idea?</h3>
                 <p class="mb-4">I'm always interested in working on new and exciting projects. Let's discuss your ideas!</p>
                 <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg">Start a Conversation</a>

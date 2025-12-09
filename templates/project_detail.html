@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ project.title }} - Projects - Shawaiz{% endblock %}
+{% block title %}{{ project.title }} - Projects - Muhammad Abdullah{% endblock %}
 
 {% block content %}
 <div class="container my-5 pt-5">
@@ -9,7 +9,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ url_for('main.projects') }}">Projects</a></li>
-            <li class="breadcrumb-item active">{{ project.title }}</li>
+            <li class="breadcrumb-item card-text">{{ project.title }}</li>
         </ol>
     </nav>
 
@@ -81,22 +81,22 @@
                 <div class="card-body">
                     <h5 class="card-title">Project Details</h5>
                     
-                    <div class="mb-3">
+                    <div class="mb-3" style="color: white;">
                         <strong>Category:</strong>
                         <span class="badge bg-secondary ms-2">{{ project.category.title() }}</span>
                     </div>
                     
-                    <div class="mb-3">
+                    <div class="mb-3" style="color: white;">
                         <strong>Created:</strong>
-                        <div class="text-muted">{{ project.created_at.strftime('%B %d, %Y') }}</div>
+                        <div style="color: white;">{{ project.created_at.strftime('%B %d, %Y') }}</div>
                     </div>
                     
                     {% if project.tech_stack %}
-                    <div class="mb-3">
+                    <div class="mb-3" style="color: white;">
                         <strong>Technologies:</strong>
                         <div class="mt-2">
                             {% for tech in project.tech_stack.split(',') %}
-                            <span class="tech-badge me-1 mb-1">{{ tech.strip() }}</span>
+                            <span class="tech-badge me-1 mb-1" style=" border: 2px solid white; border-radius: 50px; padding: 5px; background: #000;">{{ tech.strip() }}</span>
                             {% endfor %}
                         </div>
                     </div>
@@ -112,8 +112,8 @@
                             </a>
                             {% endif %}
                             {% if project.github_link %}
-                            <a href="{{ project.github_link }}" target="_blank" class="btn btn-sm btn-outline-dark">
-                                <i class="fab fa-github me-1"></i>Source Code
+                            <a href="{{ project.github_link }}" target="_blank" class="btn btn-sm btn-outline-dark" style="color: white;">
+                                <i class="fab fa-github me-1" style="color:  white; border: 2px solid white; border-radius: 50px; padding: 5px; background: #000;"></i>Source Code
                             </a>
                             {% endif %}
                         </div>

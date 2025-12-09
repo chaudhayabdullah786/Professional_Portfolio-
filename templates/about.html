@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}About Me - Shawaiz{% endblock %}
+{% block title %}About Me - Muhammad Abdullah{% endblock %}
 
 {% block content %}
 <div class="container my-5 pt-5">
@@ -8,7 +8,7 @@
         <div class="col-lg-8 mx-auto">
             <div class="text-center mb-5">
                 <h1 class="display-4 fw-bold">About Me</h1>
-                <p class="lead text-muted">Get to know more about my journey and experience</p>
+                <p class="lead text-white">Get to know more about my journey and experience</p>
             </div>
         </div>
     </div>
@@ -17,10 +17,10 @@
     <div class="row">
         <div class="col-lg-4 mb-4">
             <div class="text-center">
-                <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Shawaiz" class="profile-image mb-4">
-                <h3>Shawaiz</h3>
-                <p class="text-muted">Web Developer & Game Builder</p>
-                
+                <img src="{{ url_for('static', filename='images/a17.png') }}" alt="Muhammad Abdullah" class="profile-image mb-4">
+                <h3>Muhammad Abdullah</h3>
+                <p class="text-white">Web Developer & Data Analyst</p>
+
                 <div class="social-icons mt-4">
                     <a href="{{ get_setting('github_url', '#') }}" target="_blank" class="btn btn-outline-primary btn-sm me-2">
                         <i class="fab fa-github"></i> GitHub
@@ -33,51 +33,54 @@
                     </a>
                 </div>
             </div>
+
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <a href="{{ url_for('static', filename='files/Black Modern Professional Resume.pdf') }}" class="btn btn-outline-success btn-lg" download>
+                        <i class="fas fa-file-download me-2"></i> Download My CV
+                    </a>
+                </div>
+            </div>
         </div>
-        
+
         <div class="col-lg-8">
             <div class="about-content">
                 {% if about_text %}
-                    {{ about_text|safe }}
+                {{ about_text|safe }}
                 {% else %}
                 <p class="lead">
-                    I'm a passionate web developer and game builder with a love for creating innovative digital solutions.
+                    I am Muhammad Abdullah, a passionate Full-Stack Web Developer and BS Data Science student at GIFT University.
                 </p>
                 <p>
-                    My journey in software development began with a curiosity about how things work behind the scenes. 
-                    Over the years, I've honed my skills in various technologies and frameworks, specializing in 
-                    web development and game creation.
+                    With over 2 years of experience, I specialize in building modern, responsive, and data-driven web applications using HTML, CSS, JavaScript, React, PHP, and Java.
                 </p>
                 <p>
-                    I believe in writing clean, maintainable code and creating user experiences that are both 
-                    functional and delightful. Whether it's building a responsive web application or developing 
-                    an engaging game, I approach each project with enthusiasm and attention to detail.
+                    I have developed several academic and personal projects such as a Hospital Management System, Parking Management System, and Farming Management System.
                 </p>
                 <p>
-                    When I'm not coding, you can find me exploring new technologies, contributing to open-source 
-                    projects, or playing video games to get inspiration for my own game development projects.
+                    I am continuously expanding my skills through Prompt Engineering and Coursera certifications, aiming to create impactful digital solutions that blend functionality with innovation.
                 </p>
                 {% endif %}
             </div>
-            
+
             <!-- Quick Stats -->
             <div class="row mt-4">
                 <div class="col-md-4 text-center mb-3">
                     <div class="stats-card bg-primary text-white rounded p-3">
-                        <div class="stats-number">{{ Project.query.count() }}</div>
-                        <div class="stats-label">Projects Completed</div>
+                        <div class="stats-number" style="color: #051025;">{{ Project.query.count() }}</div>
+                        <div class="stats-label text-white">Projects Completed</div>
                     </div>
                 </div>
                 <div class="col-md-4 text-center mb-3">
                     <div class="stats-card bg-success text-white rounded p-3">
-                        <div class="stats-number">{{ Skill.query.count() }}</div>
-                        <div class="stats-label">Skills Mastered</div>
+                        <div class="stats-number" style="color: #051025;">{{ Skill.query.count() }}</div>
+                        <div class="stats-label text-white">Skills Mastered</div>
                     </div>
                 </div>
                 <div class="col-md-4 text-center mb-3">
                     <div class="stats-card bg-info text-white rounded p-3">
-                        <div class="stats-number">{{ BlogPost.query.filter_by(is_published=True).count() }}</div>
-                        <div class="stats-label">Blog Posts</div>
+                        <div class="stats-number" style="color: #051025;">{{ BlogPost.query.filter_by(is_published=True).count() }}</div>
+                        <div class="stats-label text-white">Blog Posts</div>
                     </div>
                 </div>
             </div>
@@ -95,8 +98,12 @@
                     <div class="d-flex justify-content-between align-items-start mb-2">
                         <h5 class="mb-1">{{ experience.job_title }}</h5>
                         <span class="badge bg-primary">
-                            {{ experience.start_date.strftime('%Y') }} - 
-                            {% if experience.is_current %}Present{% else %}{{ experience.end_date.strftime('%Y') if experience.end_date }}{% endif %}
+                            {{ experience.start_date.strftime('%Y') }} -
+                            {% if experience.is_current %}
+                            Present
+                            {% else %}
+                            {{ experience.end_date.strftime('%Y') if experience.end_date }}
+                            {% endif %}
                         </span>
                     </div>
                     <h6 class="text-primary mb-2">
@@ -129,7 +136,7 @@
     <!-- Call to Action -->
     <div class="row mt-5">
         <div class="col-lg-8 mx-auto text-center">
-            <div class="bg-light rounded p-5">
+            <div class="rounded p-5" style="background: #051025;">
                 <h3 class="mb-3">Interested in working together?</h3>
                 <p class="mb-4">I'm always open to discussing new opportunities and exciting projects.</p>
                 <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg me-3">Get In Touch</a>

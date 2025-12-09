@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}Blog - Shawaiz{% endblock %}
+{% block title %}Blog - Muhammad Abdullah{% endblock %}
 
 {% block content %}
 <div class="container my-5 pt-5">
     <div class="row">
         <div class="col-12 text-center mb-5">
             <h1 class="display-4 fw-bold">Blog</h1>
-            <p class="lead text-muted">Thoughts, tutorials, and insights about development</p>
+            <p class="lead text-white">Thoughts, tutorials, and insights about development</p>
         </div>
     </div>
 
@@ -104,13 +104,13 @@
             {% else %}
             <!-- Empty State -->
             <div class="text-center py-5">
-                <i class="fas fa-blog fa-4x text-muted mb-3"></i>
+                <i class="fas fa-blog fa-4x text-white mb-3"></i>
                 <h3>No blog posts yet</h3>
                 {% if current_tag %}
-                <p class="text-muted">No posts found with the tag "{{ current_tag }}".</p>
+                <p class="text-white">No posts found with the tag "{{ current_tag }}".</p>
                 <a href="{{ url_for('main.blog') }}" class="btn btn-primary">View All Posts</a>
                 {% else %}
-                <p class="text-muted">Blog posts will appear here once they're published.</p>
+                <p class="text-white">Blog posts will appear here once they're published.</p>
                 {% endif %}
             </div>
             {% endif %}
@@ -123,7 +123,7 @@
                 <div class="card-body">
                     <h5 class="card-title">About This Blog</h5>
                     <p class="card-text">
-                        Here I share my thoughts on web development, game creation, and technology. 
+                        Here I share my thoughts on web development, data analyst, and technology. 
                         You'll find tutorials, project insights, and lessons learned along the way.
                     </p>
                 </div>

@@ -242,6 +242,11 @@ def delete_skill(id):
     flash('Skill deleted successfully!', 'success')
     return redirect(url_for('admin.skills'))
 
+from flask import flash, redirect, url_for
+from flask_login import login_required
+from models import Experience
+
+
 # Experience Management
 @bp.route('/experience')
 @login_required
@@ -269,6 +274,18 @@ def new_experience():
         return redirect(url_for('admin.experience'))
     
     return render_template('admin/experience_form.html', form=form, title='New Experience')
+
+
+@bp.route('/admin/experience/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_experience(id):
+    experience = Experience.query.get_or_404(id)
+    db.session.delete(experience)
+    db.session.commit()
+    flash('Experience deleted successfully.', 'success')
+    return redirect(url_for('admin.experience'))
+
+
 
 # Messages Management
 @bp.route('/messages')

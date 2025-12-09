@@ -8,7 +8,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ url_for('admin.dashboard') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active">Blog Posts</li>
+        <li class="breadcrumb-item active" style="color: white;">Blog Posts</li>
     </ol>
 </nav>
 {% endblock %}
@@ -17,7 +17,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2>Manage Blog Posts</h2>
-        <p class="text-muted">Create, edit, and publish your blog content</p>
+        <p class="text-primary">Create, edit, and publish your blog content</p>
     </div>
     <a href="{{ url_for('admin.new_blog_post') }}" class="btn btn-primary">
         <i class="fas fa-plus me-2"></i>New Blog Post
@@ -154,7 +154,7 @@
     <div class="card-body text-center py-5">
         <i class="fas fa-blog fa-4x text-muted mb-3"></i>
         <h4>No blog posts yet</h4>
-        <p class="text-muted mb-4">Start sharing your thoughts and insights with your first blog post.</p>
+        <p class="mb-4" style="color: white;">Start sharing your thoughts and insights with your first blog post.</p>
         <a href="{{ url_for('admin.new_blog_post') }}" class="btn btn-primary">
             <i class="fas fa-plus me-2"></i>Write Your First Post
         </a>

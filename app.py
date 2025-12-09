@@ -86,12 +86,12 @@ with app.app_context():
     def create_admin_user():
         if not AdminUser.query.first():
             admin_user = AdminUser()
-            admin_user.username = 'Shawaiz'
+            admin_user.username = 'abdullah'
             admin_user.email = 'shawaiz@portfolio.com'
-            admin_user.password_hash = generate_password_hash('231980079')
+            admin_user.password_hash = generate_password_hash('231980077')
             db.session.add(admin_user)
             db.session.commit()
-            print("Default admin user created: username='Shawaiz', password='231980079'")
+            print("Default admin user created: username='abdullah', password='231980077'")
 
     # Create admin user if it doesn't exist
     create_admin_user()

@@ -4,7 +4,7 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero-section">
+<section class="hero-section" style="height: 70vh; padding-top: 5%;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 text-center text-lg-start">
@@ -17,8 +17,8 @@
             </div>
             <div class="col-lg-6 text-center">
                 <div class="profile-container">
-                    <div class="profile-image-wrapper">
-                        <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Shawaiz" class="profile-image animate-float">
+                    <div class="profile-image-wrapper" style="background: #051025;border: 5px solid #051025; border-radius: 50%;">
+                        <img src="{{ url_for('static', filename='images/a17.png') }}" alt="Shawaiz" class="profile-image animate-float">
                         <div class="profile-glow"></div>
                         <div class="profile-border"></div>
                     </div>
@@ -28,89 +28,20 @@
     </div>
 </section>
 
-<!-- Featured Projects -->
-<section class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="display-5 fw-bold">Featured Projects</h2>
-                <p class="lead text-muted">Some of my best work</p>
-            </div>
-        </div>
-        
-        {% if featured_projects %}
-        <div class="row">
-            {% for project in featured_projects %}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card project-card h-100">
-                    {% if project.image_path %}
-                    <img src="{{ url_for('static', filename=project.image_path) }}" class="card-img-top" alt="{{ project.title }}">
-                    {% else %}
-                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                        <i class="fas fa-code fa-3x text-muted"></i>
-                    </div>
-                    {% endif %}
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">{{ project.title }}</h5>
-                        <p class="card-text flex-grow-1">{{ project.short_description or project.description[:100] + '...' }}</p>
-                        
-                        {% if project.tech_stack %}
-                        <div class="tech-stack mb-3">
-                            {% for tech in project.tech_stack.split(',')[:3] %}
-                            <span class="tech-badge">{{ tech.strip() }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                        
-                        <div class="card-actions">
-                            <a href="{{ url_for('main.project_detail', id=project.id) }}" class="btn btn-primary btn-sm me-2">View Details</a>
-                            {% if project.live_link %}
-                            <a href="{{ project.live_link }}" target="_blank" class="btn btn-outline-secondary btn-sm">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        
-        <div class="row">
-            <div class="col-12 text-center mt-4">
-                <a href="{{ url_for('main.projects') }}" class="btn btn-outline-primary btn-lg">
-                    View All Projects <i class="fas fa-arrow-right ms-2"></i>
-                </a>
-            </div>
-        </div>
-        {% else %}
-        <div class="row">
-            <div class="col-12 text-center">
-                <div class="py-5">
-                    <i class="fas fa-folder-open fa-4x text-muted mb-3"></i>
-                    <h4>No featured projects yet</h4>
-                    <p class="text-muted">Projects will appear here once they're marked as featured.</p>
-                </div>
-            </div>
-        </div>
-        {% endif %}
-    </div>
-</section>
 
 <!-- Quick About -->
-<section class="py-5 bg-light">
+<section class="py-5" style="background: #051025;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <h2 class="display-6 fw-bold mb-4">About Me</h2>
                 <p class="lead">
-                    I'm a passionate web developer and game builder with experience in creating 
+                    I'm a passionate web developer and Data Analyst with experience in creating
                     modern, responsive applications and engaging interactive experiences.
                 </p>
                 <p>
-                    I love working with cutting-edge technologies and turning ideas into reality. 
-                    Whether it's a web application, mobile app, or game, I focus on creating 
+                    I love working with cutting-edge technologies and turning ideas into reality.
+                    Whether it's a web application, mobile app, or game, I focus on creating
                     user-friendly and visually appealing solutions.
                 </p>
                 <a href="{{ url_for('main.about') }}" class="btn btn-primary">Learn More About Me</a>
@@ -150,6 +81,161 @@
         </div>
     </div>
 </section>
+<div style="width: 100%; height: 50px;"></div>
+
+<!-- Featured Projects -->
+<section class="py-5" style="background: #051025;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">Featured Projects</h2>
+                <p class="lead text-white">Some of my best work</p>
+            </div>
+        </div>
+
+        {% if featured_projects %}
+        <div class="row">
+            {% for project in featured_projects %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card project-card h-100">
+                    {% if project.image_path %}
+                    <img src="{{ url_for('static', filename=project.image_path) }}" class="card-img-top" alt="{{ project.title }}">
+                    {% else %}
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="fas fa-code fa-3x text-muted"></i>
+                    </div>
+                    {% endif %}
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text flex-grow-1">{{ project.short_description or project.description[:100] + '...' }}</p>
+
+                        {% if project.tech_stack %}
+                        <div class="tech-stack mb-3">
+                            {% for tech in project.tech_stack.split(',')[:3] %}
+                            <span class="tech-badge" style="font-size:small; background:#051025; color: white; padding: 5px; border: 1px solid white; border-radius: 25px;">{{ tech.strip() }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <div class="card-actions">
+                            <a href="{{ url_for('main.project_detail', id=project.id) }}" class="btn btn-primary btn-sm me-2">View Details</a>
+                            {% if project.live_link %}
+                            <a href="{{ project.live_link }}" target="_blank" class="btn btn-outline-secondary btn-sm">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center mt-4">
+                <a href="{{ url_for('main.projects') }}" class="btn btn-outline-primary btn-lg">
+                    View All Projects <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="py-5">
+                    <i class="fas fa-folder-open fa-4x text-light mb-3"></i>
+                    <h4>No featured projects yet</h4>
+                    <p class="text-white">Projects will appear here once they're marked as featured.</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% if skills_by_category %}
+<section class="container my-5 pt-5">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h2 class="display-5 fw-bold">My Skills</h2>
+            <p class="lead text-white">Technologies and tools I work with</p>
+        </div>
+    </div>
+
+    <div class="skills-section">
+        {% for category, skills in skills_by_category.items() %}
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">
+                            <i class="fas fa-{{ 'code' if category == 'frontend' else 'server' if category == 'backend' else 'database' if category == 'database' else 'tools' if category == 'tools' else 'code-branch' }} me-2"></i>
+                            {{ category.title() }}
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            {% for skill in skills %}
+                            <div class="col-lg-6 col-md-12 mb-4">
+                                <div class="skill-item">
+                                    <div class="skill-name d-flex justify-content-between">
+                                        <span>{{ skill.name }}</span>
+                                        <span class="skill-level">{{ skill.level }}%</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar"
+                                             role="progressbar"
+                                             data-progress="{{ skill.level }}"
+                                             style="width: 0%;"
+                                             aria-valuenow="{{ skill.level }}"
+                                             aria-valuemin="0"
+                                             aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<script>document.addEventListener('DOMContentLoaded', function() {
+    const skillBars = document.querySelectorAll('.progress-bar');
+
+    const animateSkillBars = () => {
+        skillBars.forEach(bar => {
+            const progress = bar.getAttribute('data-progress');
+            bar.style.width = progress + '%';
+        });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.target.closest('.skills-section')) {
+                setTimeout(animateSkillBars, 300);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const skillsSection = document.querySelector('.skills-section');
+    if (skillsSection) {
+        observer.observe(skillsSection);
+    }
+});</script>
+{% else %}
+<!-- No skills fallback -->
+<section class="container my-5 text-center text-white">
+    <h3>No skills added yet</h3>
+    <p>Skills will appear here once they are added to the portfolio.</p>
+</section>
+{% endif %}
+
+
 
 <!-- Contact CTA -->
 <section class="py-5">
@@ -166,4 +252,8 @@
         </div>
     </div>
 </section>
+
+
 {% endblock %}
+
+

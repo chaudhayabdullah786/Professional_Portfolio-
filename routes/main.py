@@ -4,6 +4,8 @@ from app import db, mail
 from models import Project, Skill, Experience, BlogPost, Testimonial, ContactMessage, SiteSettings
 from forms import ContactForm
 from utils import parse_tags, get_setting
+from collections import defaultdict
+
 
 bp = Blueprint('main', __name__)
 
@@ -12,11 +14,21 @@ def index():
     featured_projects = Project.query.filter_by(is_featured=True).order_by(Project.order_index).limit(3).all()
     hero_title = get_setting('hero_title', 'Hi, I\'m Shawaiz')
     hero_subtitle = get_setting('hero_subtitle', 'I\'m a web developer and game builder.')
-    return render_template('index.html', 
-                         featured_projects=featured_projects,
-                         hero_title=hero_title,
-                         hero_subtitle=hero_subtitle)
 
+    # Group skills by category
+    skills_by_category = defaultdict(list)
+    all_skills = Skill.query.all()
+    for skill in all_skills:
+        skills_by_category[skill.category].append({
+            'name': skill.name,
+            'level': skill.level
+        })
+
+    return render_template('index.html', 
+                           featured_projects=featured_projects,
+                           hero_title=hero_title,
+                           hero_subtitle=hero_subtitle,
+                           skills_by_category=skills_by_category)
 @bp.route('/about')
 def about():
     experiences = Experience.query.order_by(Experience.order_index.desc()).all()
