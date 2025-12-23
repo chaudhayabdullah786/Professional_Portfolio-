@@ -38,7 +38,7 @@ app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 # --------------------------------------------------
 # DATABASE (Postgres preferred, fallback SQLite)
 # --------------------------------------------------
-DATABASE_URL ="postgresql://postgres:RUFpbWVaZgxAfLTpfdHlhtBSuwDSVNwI@yamanote.proxy.rlwy.net:10700/railway"
+DATABASE_URL = os.environ.get("postgresql://postgres:RUFpbWVaZgxAfLTpfdHlhtBSuwDSVNwI@yamanote.proxy.rlwy.net:10700/railway")
 
 if DATABASE_URL:
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
