@@ -3,7 +3,7 @@
 A personal portfolio and content-management site built with Flask — featuring a public portfolio, project listings, skills, experience, blog posts, and a full admin panel for easy content management.
 
 ## 🚀 Live Demo  
-https://muhammadabdullahdataanalsyt786.vercel.app/
+(https://mabdullahdataanalyst786.pythonanywhere.com/)
 
 ---
 
